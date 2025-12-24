@@ -9,17 +9,17 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0">
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-              Hire Local. <span className="text-red-500">Hire Verified.</span>
+              The Job Board for Canada's Workforce
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-300">
-              The only job platform that guarantees applicants are legally entitled to work in Canada. No bots. No offshore spam. 100% Verified Identity.
+              Connecting employers with verified Canadian talent. No bots. No offshore spam. 100% Verified Identity.
             </p>
             <div className="mt-10 flex items-center gap-x-6">
-              <Link href="/signup?type=employer" className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-slate-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
-                I am Hiring in Canada
+              <Link href="/signup?type=employer" className="rounded-lg bg-white px-6 py-3.5 text-base font-bold text-slate-900 shadow-lg hover:bg-gray-50 hover:shadow-xl transform hover:scale-105 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                Find Verified Talent
               </Link>
-              <Link href="/signup?type=seeker" className="text-sm font-semibold leading-6 text-white border border-white/30 px-3.5 py-2.5 rounded-md hover:bg-white/10">
-                I Want to Work in Canada <span aria-hidden="true">→</span>
+              <Link href="/signup?type=seeker" className="rounded-lg text-base font-bold leading-6 text-white border-2 border-white px-6 py-3.5 hover:bg-white hover:text-slate-900 transform hover:scale-105 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                Browse Jobs <span aria-hidden="true">→</span>
               </Link>
             </div>
           </div>

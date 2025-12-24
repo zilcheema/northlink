@@ -1,9 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NorthLink | Verified Canadian Talent
 
-## Getting Started
+NorthLink is a job platform that connects Canadian employers with verified local talent. Unlike traditional job boards, NorthLink guarantees that all applicants are legally entitled to work in Canada through rigorous identity verification and compliance checks.
 
-First, run the development server:
+## 🎯 Key Features
 
+### For Employers
+
+- **Verified Candidate Pool**: Only receive applications from candidates who have verified their identity and legal work status
+- **Job Posting**: Post jobs with detailed requirements including location, salary range, and employment type
+- **Company Verification**: Secure company verification API that validates employer email domains against official company domains
+- **Anti-Spam Protection**: Built-in filters to prevent spam and bot applications
+- **Canadian Geo-Fencing**: Optional IP-based geo-fencing to ensure applications come from within Canada
+- **Compliance First**: All features designed to comply with Canadian labour laws and PIPEDA regulations
+
+### For Job Seekers
+
+- **Identity Verification**: Bank-grade identity verification using third-party providers (Interac Verified/Trulioo) without storing sensitive documents
+- **Legal Status Attestation**: Multi-step signup process that verifies legal right to work in Canada (Citizens, Permanent Residents, or valid Work Permit holders)
+- **Privacy-Focused**: Your passport and ID documents are never stored on our servers - verification happens through trusted third-party providers
+- **Verified Profile**: Build trust with employers by having a verified profile badge
+- **Job Discovery**: Browse and apply to jobs from verified Canadian employers
+
+### Security & Compliance
+
+- **PIPEDA Compliant**: Fully compliant with Canadian privacy laws
+- **Hosted in Canada**: All data is hosted within Canadian borders
+- **Bank-Grade Security**: Uses the same verification technology as major Canadian financial institutions
+- **No Document Storage**: Identity verification happens through third-party providers - we never see or store your ID documents
+- **Email Domain Verification**: Employers must use official company email addresses to post jobs
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 16.1.1 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS 4
+- **Icons**: Lucide React
+- **Runtime**: React 19.2.3
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+ 
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd northlink
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+3. Set up environment variables:
+Create a `.env.local` file in the root directory:
+```env
+BRANDFETCH_API_KEY=your_brandfetch_api_key_here
+```
+
+4. Run the development server:
 ```bash
 npm run dev
 # or
@@ -14,23 +78,65 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+northlink/
+├── app/
+│   ├── api/
+│   │   └── verify-business/
+│   │       └── route.ts          # Company verification API endpoint
+│   ├── post/
+│   │   └── page.tsx              # Job posting page for employers
+│   ├── signup/
+│   │   └── page.tsx              # Multi-step signup with verification
+│   ├── layout.tsx                # Root layout with navigation
+│   ├── page.tsx                  # Homepage with hero and features
+│   └── globals.css               # Global styles
+├── public/                       # Static assets
+├── package.json
+├── tsconfig.json
+└── README.md
+```
 
-## Learn More
+## 🔐 Identity Verification Flow
 
-To learn more about Next.js, take a look at the following resources:
+1. **Account Creation**: User provides email and password
+2. **Legal Attestation**: User confirms legal right to work in Canada
+3. **Identity Verification**: User verifies identity through third-party provider (Interac/Trulioo)
+4. **Verification Complete**: User receives verified badge and can apply to jobs
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🏢 Company Verification
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The `/api/verify-business` endpoint validates that employers are using official company email addresses:
 
-## Deploy on Vercel
+1. Checks if email is from a public provider (blocks Gmail, Yahoo, etc.)
+2. Fetches official company domain from Brandfetch API
+3. Compares user email domain to official company domain
+4. Returns success or error based on match
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📝 Available Routes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `/` - Homepage with hero section and feature highlights
+- `/signup` - Multi-step signup process for job seekers
+- `/post` - Job posting form for employers
+- `/login` - Login page (placeholder)
+- `/jobs` - Job listings (placeholder)
+
+## 🎨 Design Philosophy
+
+NorthLink emphasizes:
+- **Trust**: Every feature is designed to build trust between employers and candidates
+- **Privacy**: User data and documents are handled with the highest privacy standards
+- **Compliance**: Built from the ground up to comply with Canadian regulations
+- **Security**: Bank-grade security measures throughout the platform
+
+## 📄 License
+
+This project is private and proprietary.
+
+## 🤝 Contributing
+
+This is a private project. For questions or support, please contact the development team.
